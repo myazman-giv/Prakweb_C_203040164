@@ -5,3 +5,8 @@ table {
 div {
   background: Teal;
 }
+
+h3 {
+  font-style: italic;
+  color: aquamarine;
+}

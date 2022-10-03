@@ -24,15 +24,16 @@ $data_buku = query("SELECT * FROM data_buku");
 </head>
 
 <body>
+  <div>
 
-  <body>
-    <br>
-    <h3 align=center>Koleksi Buku</h3>
-    <hr style="color: black;">
+    <body>
+      <br>
+      <h3 align=center>Koleksi Buku</h3>
+      <hr style="color: black;">
 
-    <a href="tambah.php" class="btn btn-info" style="position:absolute; left: 20px;">Tambah Buku</a>
-    <br><br>
-    <div>
+      <a href="tambah.php" class="btn btn-info" style="position:absolute; left: 170px;">Tambah Buku</a>
+      <br><br>
+
       <table border=" 10" cellpadding="10" cellspacing="0" align="center">
         <tr>
           <th>No</th>
@@ -61,7 +62,7 @@ $data_buku = query("SELECT * FROM data_buku");
           <?php $i++; ?>
         <?php endforeach; ?>
       </table>
-    </div>
-  </body>
+  </div>
+</body>
 
 </html>
