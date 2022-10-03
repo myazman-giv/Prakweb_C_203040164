@@ -18,11 +18,12 @@ $data_buku = query("SELECT * FROM data_buku");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar buku-buku</title>
   <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 
 </head>
 
-<body style="background-image:url(img/50.png);">
+<body>
 
   <body>
     <br>
@@ -31,35 +32,36 @@ $data_buku = query("SELECT * FROM data_buku");
 
     <a href="tambah.php" class="btn btn-info" style="position:absolute; left: 20px;">Tambah Buku</a>
     <br><br>
-
-    <table border=" 1" cellpadding="10" cellspacing="0" class="table table-success table-striped">
-      <tr>
-        <th>No</th>
-        <th>Gambar</th>
-        <th>Judul</th>
-        <th>Penulis</th>
-        <th>Tahun Terbit</th>
-        <th>Jumlah Halaman</th>
-        <th>Aksi</th>
-      </tr>
-      <?php $i = 1; ?>
-      <?php foreach ($data_buku as $db) : ?>
+    <div>
+      <table border=" 1" cellpadding="10" cellspacing="0" align="center">
         <tr>
-          <td><?= $i; ?></td>
-          <td><img src="img/<?= $db['gambar']; ?>" width="60" height="70"></td>
-          <td><?= $db['judul_buku']; ?></td>
-          <td><?= $db['penulis']; ?></td>
-          <td><?= $db['tahun_terbit']; ?></td>
-          <td><?= $db['jumlah_halaman']; ?></td>
-          <td>
-            <a href="ubah.php?id=<?= $db['id']; ?>" class="btn btn-warning">Ubah</a>
-            <a href="hapus.php?id=<?= $db["id"]; ?>" onclick="
-          return confirm('yakin?);" class="btn btn-danger">Hapus</a>
-          </td>
+          <th>No</th>
+          <th>Gambar</th>
+          <th>Judul</th>
+          <th>Penulis</th>
+          <th>Tahun Terbit</th>
+          <th>Jumlah Halaman</th>
+          <th>Aksi</th>
         </tr>
-        <?php $i++; ?>
-      <?php endforeach; ?>
-    </table>
+        <?php $i = 1; ?>
+        <?php foreach ($data_buku as $db) : ?>
+          <tr>
+            <td><?= $i; ?></td>
+            <td><img src="img/<?= $db['gambar']; ?>" width="60" height="70"></td>
+            <td><?= $db['judul_buku']; ?></td>
+            <td><?= $db['penulis']; ?></td>
+            <td><?= $db['tahun_terbit']; ?></td>
+            <td><?= $db['jumlah_halaman']; ?></td>
+            <td>
+              <a href="ubah.php?id=<?= $db['id']; ?>" class="btn btn-warning">Ubah</a>
+              <a href="hapus.php?id=<?= $db["id"]; ?>" onclick="
+          return confirm('yakin?);" class="btn btn-danger">Hapus</a>
+            </td>
+          </tr>
+          <?php $i++; ?>
+        <?php endforeach; ?>
+      </table>
+    </div>
   </body>
 
 </html>
