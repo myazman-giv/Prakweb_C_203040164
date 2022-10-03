@@ -14,25 +14,19 @@ class Produk
   public $judul,
     $penulis,
     $penerbit,
-    $harga,
-    $jmlHalaman,
-    $wktMain;
+    $harga;
 
   public function __construct(
     $judul = "judul",
     $penulis = "penulis",
     $penerbit = "penerbit",
     $harga = 0,
-    $jmlHalaman = 0,
-    $wktMain = 0,
 
   ) {
     $this->judul = $judul;
     $this->penulis = $penulis;
     $this->penerbit = $penerbit;
     $this->harga = $harga;
-    $this->jmlHalaman = $jmlHalaman;
-    $this->wktMain = $wktMain;
   }
 
   public function getLabel()
@@ -50,6 +44,24 @@ class Produk
 
 class Komik extends Produk
 {
+  public $jmlHalaman;
+
+  public function __construct(
+    $judul = "judul",
+    $penulis = "penulis",
+    $penerbit = "penerbit",
+    $harga = 0,
+    $jmlHalaman = 0,
+  ) {
+    parent::__construct(
+      $judul,
+      $penulis,
+      $penerbit,
+      $harga
+    );
+
+    $this->jmlHalaman = $jmlHalaman;
+  }
   public function getInfoProduk()
   {
     $str = "Komik : " . parent::getInfoProduk() . " - {$this->jmlHalaman}
@@ -60,9 +72,27 @@ class Komik extends Produk
 
 class Game extends Produk
 {
+  public $wktMain;
+
+  public function __construct(
+    $judul = "judul",
+    $penulis = "penulis",
+    $penerbit = "penerbit",
+    $harga = 0,
+    $wktMain = 0,
+  ) {
+    parent::__construct(
+      $judul,
+      $penulis,
+      $penerbit,
+      $harga
+    );
+
+    $this->wktMain = $wktMain;
+  }
   public function getInfoProduk()
   {
-    $str = "Game : {$this->judul} | {$this->getLabel()}, ({Rp. {$this->harga}) ~ {$this->wktMain}
+    $str = "Game : " . parent::getInfoProduk() . " ~ {$this->wktMain}
      Jam.";
     return $str;
   }
@@ -77,8 +107,8 @@ class CetakInfoProduk
   }
 }
 
-$produk1 = new Komik("Si Juki", "Fazameonk", "Bukune", 50000, 100, 0);
-$produk2 = new Game("Minecraft", "Markus", "Mojang Studios", 100000, 0, 250);
+$produk1 = new Komik("Si Juki", "Fazameonk", "Bukune", 50000, 100);
+$produk2 = new Game("Minecraft", "Markus", "Mojang Studios", 100000, 250);
 
 //komik : Si Juki | Fazameonk, Bukune (Rp. 50000) - 200 Halaman.
 //game : Minecraft | Markus, Mojang Studios, (Rp. 100000) - 250 jam.
