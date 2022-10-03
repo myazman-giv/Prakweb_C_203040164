@@ -33,7 +33,7 @@ $data_buku = query("SELECT * FROM data_buku");
     <a href="tambah.php" class="btn btn-info" style="position:absolute; left: 20px;">Tambah Buku</a>
     <br><br>
     <div>
-      <table border=" 1" cellpadding="10" cellspacing="0" align="center">
+      <table border=" 10" cellpadding="10" cellspacing="0" align="center">
         <tr>
           <th>No</th>
           <th>Gambar</th>
